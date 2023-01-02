@@ -25,10 +25,11 @@ Development utilities:
   * ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.
 * [jest](https://www.npmjs.com/package/jest)
   * Jest is a delightful JavaScript Testing Framework with a focus on simplicity.
+
 * [supertest](https://www.npmjs.com/package/supertest)
   * HTTP assertions made easy via superagent.
 
-## Setup
+## Setups
 
 ```
 npm install
