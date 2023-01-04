@@ -1,11 +1,11 @@
 import request from 'supertest';
 import app from '../../express-app';
-//import { Users } from '../model';
+import { Users } from '../model';
 
 
 beforeAll(async () => {
   try {
-    // await Users.drop();
+    await Users.drop();
   } catch (error) {
     throw new Error('ERROR CONNECTION TO DB');
   }
@@ -75,4 +75,35 @@ describe('GET /api/v1/user', () =>{
       });
     
   } );
+});
+
+// Testing the login 
+
+describe('GET /api/v1/user', () =>{
+  it('should return invalid login or password', async () =>{
+    await request(app).get('/api/v1/user/ssdds/sdss')
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .expect(404);
+  });
+  it('should return the current user when typing right credential', async () => {
+    await request(app).get('/api/v1/user/hello/dscwe')
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .expect(200)
+      .then(res =>{
+        expect(res.body).toHaveProperty('username');
+        expect(res.body).toHaveProperty('email');
+        expect(res.body).toHaveProperty('password');
+        expect(res.body).toHaveProperty('discord');
+        expect(res.body).toHaveProperty('confirmation');
+        expect(res.body.username).toBe('hello');
+        expect(res.body.email).toBe('allo@gmail.com');
+        expect(res.body.password).toBe('dscwe');
+        expect(res.body.discord).toBe('dsdsd');
+        expect(res.body.confirmation).toBe(123456);
+      });
+    
+  });
+
 });

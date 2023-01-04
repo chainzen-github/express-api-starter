@@ -13,4 +13,10 @@ export const ParamsWithId = z.object({
   }),
 });
 
+export const ParamsWithUsername = z.object({
+  username: z.string().min(1),
+  password: z.string().min(1),
+});
+
 export type ParamsWithId = z.infer<typeof ParamsWithId>;
+export type ParamsWithUsername = z.infer<typeof ParamsWithUsername>;

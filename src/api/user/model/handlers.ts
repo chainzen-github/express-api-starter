@@ -16,3 +16,15 @@ export const findElements = async ():Promise<UserTypeWidthId[] | []> => {
   return foundElement;
   
 };
+
+
+export const findElement = async (username:string, password:string):Promise<UserTypeWidthId | null> =>{
+  const foundElement = await Users.findOne({
+    username,
+    password,
+  });
+  return foundElement;
+};
+
+
+
