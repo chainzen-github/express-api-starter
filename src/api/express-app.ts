@@ -4,7 +4,7 @@ import helmet from 'helmet';
 import cors from 'cors';
 require('dotenv').config();
 import { notFound, errorHandler } from '../middlewares/error-handling/error-handling';
-import api from './todos/route';
+import api from '.';
 
 const app = express();
 

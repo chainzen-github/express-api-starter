@@ -1,11 +1,9 @@
 import request from 'supertest';
 import app  from '../../express-app';
-import { client } from '../../mongo-database';
 import { Todos } from '../model';
 
 beforeAll(async () => {
   try {
-    await client.connect();
     await Todos.drop();
   } catch (error) {
     throw new Error('ERROR CONNECTION TO DB');
