@@ -10,7 +10,7 @@ export const User = z.object({
   password: z.string().min(1, { message: "Don't be lazy type a real password" })
     .max(80, { message: 'password too long' }),
   discord: z.string().min(1, { message: 'google how to find my discord ID' }).max(80),
-  confirmation: z.number().min(5).max(5, { message: 'stop spamming bro' }),
+  confirmation: z.number(),
 });
 
 export const Users = db.collection<UserType>('Users');

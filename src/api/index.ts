@@ -5,7 +5,8 @@ import user from './user/route/handlers';
 
 const router = express.Router();
 
-router.use('/todos', todos);
 router.use('/user', user );
+router.use('/todos', todos);
+
 
 export default router;
